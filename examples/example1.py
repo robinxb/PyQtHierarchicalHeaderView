@@ -3,7 +3,7 @@
 #
 import sys
 from PyQt4 import QtCore, QtGui
-from HierarchicalHeaderView import HierarchicalHeaderView
+from PyQtHierarchicalHeaderView.PyQtHierarchicalHeaderView import PyQtHierarchicalHeaderView
 
 class ExampleModel(QtCore.QAbstractTableModel):
   def __init__(self,parent=None):
@@ -36,9 +36,9 @@ class ExampleModel(QtCore.QAbstractTableModel):
 
   def data(self,index,role):
     print()
-    if role==HierarchicalHeaderView.HorizontalHeaderDataRole:
+    if role==PyQtHierarchicalHeaderView.HorizontalHeaderDataRole:
       return self._horizontalHeaderModel
-    if role==HierarchicalHeaderView.VerticalHeaderDataRole:
+    if role==PyQtHierarchicalHeaderView.VerticalHeaderDataRole:
       return self._verticalHeaderModel
     if(role==QtCore.Qt.DisplayRole and index.isValid()):
       return ("index({0}, {1})".format(index.row(),index.column()))
@@ -53,12 +53,12 @@ class ExampleModel(QtCore.QAbstractTableModel):
 app = QtGui.QApplication(sys.argv)
 em = ExampleModel()
 tv = QtGui.QTableView()
-hv = HierarchicalHeaderView(QtCore.Qt.Horizontal, tv)
+hv = PyQtHierarchicalHeaderView(QtCore.Qt.Horizontal, tv)
 hv.setHighlightSections(True);
 hv.setClickable(True);
 tv.setHorizontalHeader(hv);
 
-hv=HierarchicalHeaderView(QtCore.Qt.Vertical, tv)
+hv=PyQtHierarchicalHeaderView(QtCore.Qt.Vertical, tv)
 hv.setHighlightSections(True)
 hv.setClickable(True)
 tv.setVerticalHeader(hv);

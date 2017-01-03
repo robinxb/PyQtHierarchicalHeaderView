@@ -7,7 +7,7 @@ class private_data:
   def __init__(self):
     self.headerModel=None
   def initFromNewModel(self,orientation, model):
-    self.headerModel = model.data(QtCore.QModelIndex(),(HierarchicalHeaderView.HorizontalHeaderDataRole if orientation==QtCore.Qt.Horizontal else HierarchicalHeaderView.VerticalHeaderDataRole))
+    self.headerModel = model.data(QtCore.QModelIndex(),(PyQtHierarchicalHeaderView.HorizontalHeaderDataRole if orientation==QtCore.Qt.Horizontal else PyQtHierarchicalHeaderView.VerticalHeaderDataRole))
 
   def findRootIndex(self,index):
     while index.parent().isValid() :
@@ -200,7 +200,7 @@ class private_data:
             painter.setBrushOrigin(oldBO);
 
 
-class HierarchicalHeaderView(QtGui.QHeaderView):
+class PyQtHierarchicalHeaderView(QtGui.QHeaderView):
   HorizontalHeaderDataRole=QtCore.Qt.UserRole
   VerticalHeaderDataRole=QtCore.Qt.UserRole+1
 

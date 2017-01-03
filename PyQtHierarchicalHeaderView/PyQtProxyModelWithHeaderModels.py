@@ -3,18 +3,18 @@
 #
 import sys
 from PyQt4 import QtCore, QtGui, uic
-from HierarchicalHeaderView import HierarchicalHeaderView
+from .PyQtHierarchicalHeaderView import PyQtHierarchicalHeaderView
 
-class ProxyModelWithHeaderModels(QtGui.QProxyModel):
+class PyQtProxyModelWithHeaderModels(QtGui.QProxyModel):
   def __init__(self,parent=None):
     QtGui.QProxyModel.__init__(self,parent)
     self._horizontalHeaderModel=None
     self._verticalHeaderModel=None
 
   def data(self,index,role=QtCore.Qt.DisplayRole):
-    if self._horizontalHeaderModel and role==HierarchicalHeaderView.HorizontalHeaderDataRole:
+    if self._horizontalHeaderModel and role==PyQtHierarchicalHeaderView.HorizontalHeaderDataRole:
       return self._horizontalHeaderModel
-    if self._verticalHeaderModel and role==HierarchicalHeaderView.VerticalHeaderDataRole:
+    if self._verticalHeaderModel and role==PyQtHierarchicalHeaderView.VerticalHeaderDataRole:
       return self._verticalHeaderModel
     return QtGui.QProxyModel.data(self, index, role)
 

@@ -3,8 +3,8 @@
 #
 import sys
 from PyQt4 import QtCore, QtGui
-from ProxyModelWithHeaderModels import ProxyModelWithHeaderModels
-from HierarchicalHeaderView import HierarchicalHeaderView
+from PyQtHierarchicalHeaderView.PyQtProxyModelWithHeaderModels import PyQtProxyModelWithHeaderModels
+from PyQtHierarchicalHeaderView.PyQtHierarchicalHeaderView import PyQtHierarchicalHeaderView
 
 def BuildDataModel(model):
   cellText = "cell({0}, {1})"
@@ -33,14 +33,14 @@ BuildHeaderModel(headerModel)
 dataModel = QtGui.QStandardItemModel()
 BuildDataModel(dataModel)
 
-model=ProxyModelWithHeaderModels()
+model=PyQtProxyModelWithHeaderModels()
 model.setModel(dataModel)
 model.setHorizontalHeaderModel(headerModel)
 model.setVerticalHeaderModel(headerModel)
 
 tv = QtGui.QTableView()
-tv.setHorizontalHeader(HierarchicalHeaderView(QtCore.Qt.Horizontal,tv));
-tv.setVerticalHeader(HierarchicalHeaderView(QtCore.Qt.Vertical, tv));
+tv.setHorizontalHeader(PyQtHierarchicalHeaderView(QtCore.Qt.Horizontal,tv));
+tv.setVerticalHeader(PyQtHierarchicalHeaderView(QtCore.Qt.Vertical, tv));
 tv.setModel(model)
 tv.resizeColumnsToContents()
 tv.resizeRowsToContents()

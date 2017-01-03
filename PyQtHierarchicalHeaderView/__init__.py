@@ -1,0 +1,2 @@
+from .PyQtHierarchicalHeaderView import PyQtHierarchicalHeaderView
+from .PyQtProxyModelWithHeaderModels import PyQtProxyModelWithHeaderModels
