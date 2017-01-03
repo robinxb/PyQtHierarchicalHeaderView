@@ -299,6 +299,8 @@ class HierarchicalHeaderView(QtGui.QHeaderView):
     leafIndex = QtCore.QModelIndex(self._pd.leafIndex(logicalIndex));
     if leafIndex.isValid():
       leafsList = self._pd.leafs(self._pd.findRootIndex(leafIndex));
+      if not leafIndex in leafsList:
+        return
       for n in range(leafsList.index(leafIndex),1,-1): #(int n=leafsList.indexOf(leafIndex); n>0; --n)
         logicalIndex-=1;
         w = self.viewport().width()
