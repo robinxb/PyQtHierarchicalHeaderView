@@ -3,8 +3,8 @@
 #
 import sys
 from PyQt4 import QtCore, QtGui
-from PyQtHierarchicalHeaderView.PyQtProxyModelWithHeaderModels import PyQtProxyModelWithHeaderModels
-from PyQtHierarchicalHeaderView.PyQtHierarchicalHeaderView import PyQtHierarchicalHeaderView
+from PyQtHierarchicalHeaderView import PyQtProxyModelWithHeaderModels
+from PyQtHierarchicalHeaderView import PyQtHierarchicalHeaderView
 
 def BuildDataModel(model):
   cellText = "cell({0}, {1})"

@@ -3,7 +3,7 @@
 #
 import sys
 from PyQt4 import QtCore, QtGui
-from PyQtHierarchicalHeaderView.PyQtHierarchicalHeaderView import PyQtHierarchicalHeaderView
+from PyQtHierarchicalHeaderView import PyQtHierarchicalHeaderView
 
 class ExampleModel(QtCore.QAbstractTableModel):
   def __init__(self,parent=None):
